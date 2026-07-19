@@ -1,0 +1,43 @@
+{
+  "name": "kotodama-t9nt3w5u",
+  "main": "svelte/.svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2025-03-17",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_als"
+  ],
+  "vars": {
+    "APP_CAPABILITIES": "[\"createTitle\",\"listTitles\",\"recordScore\",\"listScores\",\"getLeaderboard\",\"createSession\",\"listSessions\",\"getAchievements\"]",
+    "APP_DESCRIPTION": "games — Game platform — titles, scores, achievements, leaderboards, sessions",
+    "APP_DISPLAY_NAME": "Games Platform",
+    "APP_FRAMEWORK": "sveltekit-edge-bff",
+    "APP_NANOID": "t9nt3w5u",
+    "APP_PERFORMER_TYPE": "service",
+    "APP_UI_TYPE": "yoro",
+    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.etzhayyim.com/xrpc/com.etzhayyim.mcp.message"
+  },
+  "rules": [
+    {
+      "type": "CompiledWasm",
+      "globs": [
+        "**/*.wasm"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "t9nt3w5u.etzhayyim.com/*",
+      "zone_name": "etzhayyim.com"
+    },
+    {
+      "pattern": "games.etzhayyim.com/*",
+      "zone_name": "etzhayyim.com"
+    }
+  ],
+  "assets": {
+    "directory": "./svelte/.svelte-kit/cloudflare/client",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

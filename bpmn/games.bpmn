@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  targetNamespace="http://bpmn.io/schema/bpmn">
+
+  <!-- createTitle -->
+  <bpmn:process id="games-create-title" name="Games Create Title" isExecutable="true">
+    <bpmn:startEvent id="start-create-title"/>
+    <bpmn:sequenceFlow id="sf-ctit-1" sourceRef="start-create-title" targetRef="task-create-title"/>
+    <bpmn:serviceTask id="task-create-title" name="Create Title">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.createTitle"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-ctit-2" sourceRef="task-create-title" targetRef="end-create-title"/>
+    <bpmn:endEvent id="end-create-title"/>
+  </bpmn:process>
+
+  <!-- listTitles -->
+  <bpmn:process id="games-list-titles" name="Games List Titles" isExecutable="true">
+    <bpmn:startEvent id="start-list-titles"/>
+    <bpmn:sequenceFlow id="sf-ltit-1" sourceRef="start-list-titles" targetRef="task-list-titles"/>
+    <bpmn:serviceTask id="task-list-titles" name="List Titles">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.listTitles"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-ltit-2" sourceRef="task-list-titles" targetRef="end-list-titles"/>
+    <bpmn:endEvent id="end-list-titles"/>
+  </bpmn:process>
+
+  <!-- recordScore -->
+  <bpmn:process id="games-record-score" name="Games Record Score" isExecutable="true">
+    <bpmn:startEvent id="start-record-score"/>
+    <bpmn:sequenceFlow id="sf-rs-1" sourceRef="start-record-score" targetRef="task-record-score"/>
+    <bpmn:serviceTask id="task-record-score" name="Record Score">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.recordScore"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-rs-2" sourceRef="task-record-score" targetRef="end-record-score"/>
+    <bpmn:endEvent id="end-record-score"/>
+  </bpmn:process>
+
+  <!-- listScores -->
+  <bpmn:process id="games-list-scores" name="Games List Scores" isExecutable="true">
+    <bpmn:startEvent id="start-list-scores"/>
+    <bpmn:sequenceFlow id="sf-lsc-1" sourceRef="start-list-scores" targetRef="task-list-scores"/>
+    <bpmn:serviceTask id="task-list-scores" name="List Scores">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.listScores"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-lsc-2" sourceRef="task-list-scores" targetRef="end-list-scores"/>
+    <bpmn:endEvent id="end-list-scores"/>
+  </bpmn:process>
+
+  <!-- getLeaderboard -->
+  <bpmn:process id="games-get-leaderboard" name="Games Get Leaderboard" isExecutable="true">
+    <bpmn:startEvent id="start-get-leaderboard"/>
+    <bpmn:sequenceFlow id="sf-glb-1" sourceRef="start-get-leaderboard" targetRef="task-get-leaderboard"/>
+    <bpmn:serviceTask id="task-get-leaderboard" name="Get Leaderboard">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.getLeaderboard"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-glb-2" sourceRef="task-get-leaderboard" targetRef="end-get-leaderboard"/>
+    <bpmn:endEvent id="end-get-leaderboard"/>
+  </bpmn:process>
+
+  <!-- createSession -->
+  <bpmn:process id="games-create-session" name="Games Create Session" isExecutable="true">
+    <bpmn:startEvent id="start-create-session"/>
+    <bpmn:sequenceFlow id="sf-cs-1" sourceRef="start-create-session" targetRef="task-create-session"/>
+    <bpmn:serviceTask id="task-create-session" name="Create Session">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.createSession"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-cs-2" sourceRef="task-create-session" targetRef="end-create-session"/>
+    <bpmn:endEvent id="end-create-session"/>
+  </bpmn:process>
+
+  <!-- listSessions -->
+  <bpmn:process id="games-list-sessions" name="Games List Sessions" isExecutable="true">
+    <bpmn:startEvent id="start-list-sessions"/>
+    <bpmn:sequenceFlow id="sf-ls-1" sourceRef="start-list-sessions" targetRef="task-list-sessions"/>
+    <bpmn:serviceTask id="task-list-sessions" name="List Sessions">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.listSessions"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-ls-2" sourceRef="task-list-sessions" targetRef="end-list-sessions"/>
+    <bpmn:endEvent id="end-list-sessions"/>
+  </bpmn:process>
+
+  <!-- getAchievements -->
+  <bpmn:process id="games-get-achievements" name="Games Get Achievements" isExecutable="true">
+    <bpmn:startEvent id="start-get-achievements"/>
+    <bpmn:sequenceFlow id="sf-ga-1" sourceRef="start-get-achievements" targetRef="task-get-achievements"/>
+    <bpmn:serviceTask id="task-get-achievements" name="Get Achievements">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="com.etzhayyim.apps.games.getAchievements"/>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="sf-ga-2" sourceRef="task-get-achievements" targetRef="end-get-achievements"/>
+    <bpmn:endEvent id="end-get-achievements"/>
+  </bpmn:process>
+
+</bpmn:definitions>

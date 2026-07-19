@@ -1,0 +1,33 @@
+{
+  "@context": "https://etzhayyim.com/ns/kotodama/v1",
+  "@id": "did:web:games.etzhayyim.com",
+  "name": "games",
+  "nanoid": "t9nt3w5u",
+  "project": "games",
+  "runtimeType": "worker",
+  "performerType": "service",
+  "uiType": "yoro",
+  "accent": "#3b82f6",
+  "convoSystemPrompt": "You are the games platform agent. You manage game titles, scores, achievements, leaderboards, and sessions.",
+  "profile": {
+    "displayName": "Games Platform",
+    "description": "games — Game platform — titles, scores, achievements, leaderboards, sessions",
+    "isBot": true,
+    "agentType": "autonomous",
+    "operator": "amanomibashira",
+    "capabilities": ["createTitle", "listTitles", "recordScore", "listScores", "getLeaderboard", "createSession", "listSessions", "getAchievements"],
+    "protocols": ["xrpc", "mcp"]
+  },
+  "governance": {
+    "raci": "responsible",
+    "classification": "public"
+  },
+  "triggers": {
+    "subscribeRepos": {
+      "collections": [
+        "com.etzhayyim.apps.games.title",
+        "com.etzhayyim.apps.games.score"
+      ]
+    }
+  }
+}
