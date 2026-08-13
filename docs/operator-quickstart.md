@@ -44,7 +44,7 @@ nbb docs/check-surface.cljs
 Observed — **exit 1, and exit 1 is the expected result today**:
 
 ```
-SCANNED	15 files	DECLARED-HOSTS	5
+SCANNED	14 files	DECLARED-HOSTS	5
 control	registry.npmjs.org	resolves
 
 dispatcher.etzhayyim.com  NXDOMAIN  <- appview/games-mcp-component/src/app.ts
@@ -138,7 +138,17 @@ node /path/to/com-junkawasaki/scripts/resource-guard.mjs run build -- npm run bu
 Standalone clones outside that superproject have no such script; use
 `npm run build` directly.
 
-Observed — exit 0, `✓ built in 6.46s`, `Using @sveltejs/adapter-cloudflare`.
+The guard refuses rather than queues. On the recorded run it first answered
+
+```
+resource-guard: build is already running (pid=1934, repo=.../cloud-murakumo, ...)
+```
+
+and **exited 2** — another session held the lock. That is the guard working, not
+a failure of this repo. Retry until it is free; the build itself is ~7s.
+
+Observed once the lock cleared — exit 0, `✓ built in 6.30s`,
+`Using @sveltejs/adapter-cloudflare`.
 Confirm the artifact wrangler expects now exists:
 
 ```bash
