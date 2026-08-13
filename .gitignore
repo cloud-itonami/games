@@ -1,0 +1,11 @@
+# Build output and installed dependencies.
+#
+# This repo had no .gitignore until 2026-08-13. Both `npm install` steps in
+# docs/operator-quickstart.md leave untracked trees behind, and without this
+# file a later `git add -A` would commit ~157 packages plus the SvelteKit build.
+
+node_modules/
+.svelte-kit/
+.wrangler/
+dist/
+build/
